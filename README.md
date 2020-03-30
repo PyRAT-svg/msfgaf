@@ -21,7 +21,7 @@ apt install metasploit
 
 cd msfgaf
 
-msfgaf.py
+python2 msfgaf.py
 
 ```
 
