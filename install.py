@@ -19,7 +19,7 @@ time.sleep(3)
 os.system('termux-open https://play.google.com/store/apps/details?id=net.openvpn.openvpn')
 print "Kemudian Install Apk Signer"
 time.sleep(4)
-os.system('https://play.google.com/store/apps/details?id=com.haibison.apksigner')
+os.system('termux-open https://play.google.com/store/apps/details?id=com.haibison.apksigner')
 time.sleep(4)
 os.system('rm -rf install.py')
 os.system('python2 msfgaf.py')
