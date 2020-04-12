@@ -3,28 +3,29 @@
 ```
 Code By : GAFAR RISKY
 ```
-## What is msf-gaf
+## What is MSF-GAF
 
 ```
-is an exploitable Android tool
-has collaborated with Apktool and Metasploit framwork 
-created with Python2 encoding
-With this tool, you may be able to crack any linked account
-You can hack the ATM card
-You can spy on the target every time
-You can record all your target activities without realizing it
-Use your brain and this tool you will get everything
+[+] is an exploitable Android tool
+[+] has collaborated with Apktool and Metasploit framwork 
+[+] created with Python2 encoding
+
+[+] With this tool, you may be able to crack any linked account
+[+] You can hack the ATM card
+[+] You can spy on the target every time
+[+] You can record all your target activities without realizing it
+[+] Use your brain and this tool you will get everything
 ```
 
 ## Attention! 
 ```
-[+]This tool will not work if you do not understand about IP Forwarder 
-[+]You must already have an account portmap.io
-[+]For all Android devices, either root or Nonroot
-[+]This tool is available in Indonesia language
-[+]This tool I accidentally enscribed not in the wrong use
-[+]If you want to modify this tool. Please join WhatsApp group link below
-[+]This tool is only for education
+[+] This tool will not work if you do not understand about IP Forwarder 
+[+] You must already have an account portmap.io
+[+] For all Android devices, either root or Nonroot
+[+] This tool is available in Indonesia language
+[+] This tool I accidentally enscribed not in the wrong use
+[+] If you want to modify this tool. Please join WhatsApp group link below
+[+] This tool is only for education
 ```
 
 ## OS-SYSTEM
