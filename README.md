@@ -7,7 +7,7 @@ Code By : GAFAR RISKY
 
 ```
 [+] is an exploitable Android tool
-[+] has collaborated with Apktool and Metasploit framwork 
+[+] has collaborated with Apktool and Metasploit framework 
 [+] created with Python2 encoding
 
 [+] With this tool, you may be able to crack any linked account
