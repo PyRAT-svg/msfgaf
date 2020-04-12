@@ -66,7 +66,7 @@ Already available in the package
 Jangan Goblok tapi manja.
 Baca dengan Teliti
 
-Tools Ini hanya untuk Edukasi
+Tools Ini hanya untuk Edukasi,
 Patuhi HUKUM !
 
 ```
