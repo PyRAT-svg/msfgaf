@@ -18,29 +18,28 @@ Use your brain and this tool you will get everything
 
 ## Attention! 
 ```
-This tool will not work if you do not understand about IP Forwarder 
-You must already have an account portmap.io
-For all Android devices, either root or Nonroot
-This tool is available in Indonesia language
-This tool I accidentally enscribed not in the wrong use
-If you want to modify this tool. Please join WhatsApp group link below
-This tool is only for education
+[+]This tool will not work if you do not understand about IP Forwarder 
+[+]You must already have an account portmap.io
+[+]For all Android devices, either root or Nonroot
+[+]This tool is available in Indonesia language
+[+]This tool I accidentally enscribed not in the wrong use
+[+]If you want to modify this tool. Please join WhatsApp group link below
+[+]This tool is only for education
 ```
 
-## OS System
-
+## OS-SYSTEM
 ```
 Android => Termux
 Linux   => With Openvpn, Apktool and Apksigner other versions
 ```
 
-## Usage
+## USAGE
 ```
 python2 msfgaf.py
 
 ```
 
-## Installation
+## INSTALLATION
 
 ```
 apt install python2
@@ -49,7 +48,7 @@ git clone https://github.com/PyRAT-svg/msfgaf
 cd msfgaf
 python2 install.py
 ```
-## System Requirement
+## SYSTEM REQUIREMENTS
 ```
 metasploit
 apktool
@@ -58,6 +57,9 @@ python2
 System Requirements
 Already available in the package 
 
+
+
+
 ### CATATAN PENTING !
 
 Jangan Goblok tapi manja.
@@ -65,10 +67,12 @@ Baca dengan Teliti
 
 Tools Ini hanya untuk Edukasi
 Patuhi HUKUM !
+
 ```
 UNTUK SAAT INI MODUL NOMOR.1 MASIH BETA
 MASIH DALAM TAHAP PENGEMBANGAN
 ```
+
 # CARA KERJA UNTUK HACK WHATSAP
 ### 1.MEMBUAT BACKDOOR
 ```
