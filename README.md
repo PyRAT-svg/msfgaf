@@ -2,6 +2,7 @@
 
 ```
 Code By : GAFAR RISKY
+Open Resources Until the InRelease stable version
 ```
 ## What is MSF-GAF
 
