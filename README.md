@@ -64,7 +64,6 @@ Already available in the package
 
 ### CATATAN PENTING !
 
-Jangan Goblok tapi manja.
 Baca dengan Teliti
 
 Tools Ini hanya untuk Edukasi,
