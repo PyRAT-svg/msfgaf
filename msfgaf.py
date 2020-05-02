@@ -171,6 +171,7 @@ def sisip():
     
 def update():
 	os.system('clear')
+	os.system('git stash && git pull && git stash apply')
 	os.system('git pull origin master')
 	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
 	home()
