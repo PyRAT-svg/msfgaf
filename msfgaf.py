@@ -54,7 +54,6 @@ else :
 			print 'anda harus mengaktifkan OpenVPN untuk melanjutkan'
 			time.sleep(2)
 			os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
-			home()
 		else :
 			print 'Konfirmasi Salah!'
 			time.sleep(4)
