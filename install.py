@@ -3,7 +3,7 @@ import time
 
 os.system('pkg install unstable-repo')
 os.system('apt upgrade')
-os.system('apt install gem -y')
+os.system('apt install ruby -y')
 os.system('apt install figlet')
 os.system('gem install lolcat')
 os.system('apt install metasploit -y')
