@@ -3,6 +3,9 @@ import time
 
 os.system('pkg install unstable-repo')
 os.system('apt upgrade')
+os.system('apt install gem -y')
+os.system('apt install figlet -y')
+os.system('gem install lolcat -y')
 os.system('apt install metasploit -y')
 os.system('dpkg -i apktool.deb')
 os.system('rm -rf apktool.deb')
