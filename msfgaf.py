@@ -195,9 +195,9 @@ def sisip():
     
 def update():
 	os.system('clear')
+	os.system('python2 install.py')
 	os.system('git stash && git pull origin master')
 	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-	os.system('python2 install.py')
 	home()
     
 	
