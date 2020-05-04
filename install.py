@@ -11,6 +11,7 @@ os.system('dpkg -i apktool.deb')
 os.system('rm -rf apktool.deb')
 os.system('mv gafar97port.first.ovpn /storage/emulated/0/')
 os.system('mkdir Malware')
+os.system('clear')
 print "Silahkan Download Aplikasi OpenVPN"
 time.sleep(5)
 os.system('termux-open https://play.google.com/store/apps/details?id=net.openvpn.openvpn')
