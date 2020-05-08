@@ -5,6 +5,7 @@ import os
 import time
 import sys
 import random
+import shutil
 
 
 putih="\x1b[1;97m"
@@ -159,10 +160,13 @@ def extract_wa():
 	os.system('clear')
 	logo()
 	time.sleep(1)
-	flush(hijau+'Ambilkan saya Key&Database')
-	print '--------------------------------'
+	print ' '
+	print hijau+'------------------------------------'
+	flush('Ambilkan saya Key&Database')
+	print '-------------------------------------'
 	flush('saya akan berikan yang kamu inginkan')
-	print '--------------------------------'
+	print '-------------------------------------'
+	print ' '
 	time.sleep(1)
 	zedd=raw_input('Siap menyelam Kesystem? y/n : ')
 	if zedd == 'y':
@@ -171,9 +175,13 @@ def extract_wa():
 		if zedd == 'n':
 			home()
 	os.system('git clone https://github.com/PyRAT-svg/decryptor12 &&mv decryptor12 d')
-	os.system('cd d && php decrypt.php msgstore.db.crypt12 key')
-	os.system('cd d && mv msgstore.db /storage/emulated/0/BackupTextForWhatsApp/msgstore.db')
-	os.system('cd d && mv msgstore.enc /storage/emulated/0/BackupTextForWhatsApp/msgstore.enc')
+	files = ['msgstore.db.crypt12','key']
+	for f in files:
+		shutil.move(f, 'd')
+	os.system('cd d && php decrypt.php msgstore.db.crypt12 key') 
+	os.system('cd d/src &&mv msgstore.db /storage/emulated/0/BackupTextForWhatsApp/msgstore.db')
+	os.system('mv msgstore.enc /storage/emulated/0/BackupTextForWhatsApp/msgstore.enc')
+	os.system('cd d &&mv -f key ..')
 	os.system('rm -rf d')
 	os.system('am start --user 0 -n com.smeiti.wstotexu/com.smeiti.wstotexu.WStoTextActivity')
 	back()
