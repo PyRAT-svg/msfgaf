@@ -1,6 +1,7 @@
 import os
 import time
 
+os.system('termux-setup-storage')
 os.system('pkg install unstable-repo')
 os.system('apt upgrade')
 os.system('apt install ruby -y')
