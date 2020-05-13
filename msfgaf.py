@@ -227,7 +227,7 @@ def malware():
 
 
 def logo():      
-	print "\n \x1b[1;92m \n \x1b[1;97m╔════════════════════════════════════════════════╗\n \x1b[1;97m║ \x1b[1;91m                 PERINGATAN    \x1b[1;96m\x1b[1;97m                ║\n \x1b[1;97m║\x1b[1;91m    Kami Tidak Bertanggung Jawab Atas Segala   \x1b[  \x1b[1;97m ║\n \x1b[1;97m║\x1b[1;91m       Pelanggaran HUKUM Yang Anda lakukan   \x1b[  \x1b[1;97m   ║   \n \x1b[1;97m╚════════════════════════════════════════════════╝"  '\n'
+	os.system('figlet msf - gaf |lolcat')
 	print '---------------------------------------------------'
 	print cyan+' Author  : '+green+'Gafar Risky {PyRAT-svg}   '
 	print cyan+' Github  : '+green+'http://github.com/PyRAT-svg/msfgaf '
