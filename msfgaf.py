@@ -217,7 +217,7 @@ def pilmal():
 				spyphone_V14()
 			else:
 				if zedd == '3':
-					gbwa()
+					print merah+'script dalam perbaikan'
 				else :
 					if zedd == '4':
 						print merah+'script dalam perbaikan'
