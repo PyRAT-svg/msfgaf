@@ -220,7 +220,7 @@ def pilmal():
 					gbwa()
 				else :
 					if zedd == '4':
-						wa()
+						print merah+'script dalam perbaikan'
 					else :
 						print '\x1b[1;91m[!] Pilih 1-2'
 						os.system('clear')
