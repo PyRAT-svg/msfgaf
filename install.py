@@ -13,7 +13,6 @@ def nxt():
 	raw_input('\n\x1b[1;91m					[ \x1b[1;97mNext \x1b[1;91m]')
 
 flush('izinkan akses penyimpanan')
-nxt()
 os.system('termux-setup-storage')
 nxt()
 os.system('pkg install unstable-repo')
