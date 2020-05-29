@@ -2,6 +2,8 @@ import os, sys
 import time
 import random
 
+os.system('clear')
+
 def flush(s):
     for c in s + '\n':
         sys.stdout.write(c)
@@ -9,10 +11,11 @@ def flush(s):
         time.sleep(random.random() * 0.1)
 
 def nxt():
-	print '---------------------------------------------------'
+	print putih+'---------------------------------------------------'
 	raw_input('\n\x1b[1;91m					[ \x1b[1;97mNext \x1b[1;91m]')
 
 flush('izinkan akses penyimpanan')
+nxt()
 os.system('termux-setup-storage')
 nxt()
 os.system('pkg install unstable-repo')
