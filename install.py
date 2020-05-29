@@ -9,7 +9,7 @@ def flush(s):
         time.sleep(random.random() * 0.1)
 
 def nxt():
-	print putih+'---------------------------------------------------'
+	print '---------------------------------------------------'
 	raw_input('\n\x1b[1;91m					[ \x1b[1;97mNext \x1b[1;91m]')
 
 flush('izinkan akses penyimpanan')
