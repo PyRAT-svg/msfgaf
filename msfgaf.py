@@ -247,7 +247,7 @@ def remote():
     os.system("clear")    	
     logo()
     os.system('rm -rf ip.txt')
-    os.system('ifconfig | grep destination > ip.txt')
+    os.system('ifconfig > ip.txt')
     f = open('ip.txt')
     g = merah+f.read()
     print '' 
@@ -255,7 +255,7 @@ def remote():
     f.close
     print putih+'Jika IP diatas kosong, Aktifkan OpenVPN'
     print "\x1b[1;91m----------------------------------------------"
-    print " Masukan IP destination : "
+    print " Masukan IP tun0 inet: "
     lh =raw_input(" LHOST : ")
     if lh== '':
       print merah+"[!] Harus DiIsi"
