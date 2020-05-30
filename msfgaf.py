@@ -246,8 +246,8 @@ def logo():
 def remote():
     os.system("clear")    	
     logo()
-    print (''+putih)
-    os.system('ifconfig | grep -o [0-9][0-9][.][0-9][.][0-9][0-9][.][0-9][0-9][0-9] > ip.txt')
+    os.system('rm -rf ip.txt')
+    os.system('ifconfig | grep destination > ip.txt')
     f = open('ip.txt')
     g = merah+f.read()
     print '' 
