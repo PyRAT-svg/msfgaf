@@ -255,7 +255,7 @@ def remote():
     f.close
     print putih+'Jika IP diatas kosong, Aktifkan OpenVPN'
     print "\x1b[1;91m----------------------------------------------"
-    print " Masukan IP "
+    print " Masukan IP destination : "
     lh =raw_input(" LHOST : ")
     if lh== '':
       print merah+"[!] Harus DiIsi"
