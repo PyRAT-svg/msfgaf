@@ -144,7 +144,7 @@ def extract_wa():
 	flush('    download {database}')
 	nxt()
 	flush(hijau+'Membuka Msfconsole ... ')
-	#remote()
+	remote()
 	logo()
 	flush(putih+'Buka link Verifikasi')
 	flush('Untuk Meretas akun Target')
