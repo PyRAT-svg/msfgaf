@@ -248,7 +248,7 @@ def malware():
 
 def logo():      
 	f = open('Baner/asci')
-	(f.read(),'yellow')
+	print colored(f.read(),'yellow')
 	f.close
 	print '---------------------------------------------------'
 	print cyan+' Author  : '+green+'Gafar Risky {PyRAT-svg}   '
